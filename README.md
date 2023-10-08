@@ -1,27 +1,19 @@
-# AngularDDS
+Back-end para TP de Diseño de Sistemas basado en Spring Boot (Java)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+La base de datos está dockerizada. Para usarla hay que correr el comando:
+> docker pull cherckyto/dds-mysql:1.0
 
-## Development server
+> docker run -p 3306:3306 -d cherckyto/dds-mysql:1.0
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Si se inicializa el contenedor desde Docker Desktop hay que exponer el puerto 3306 del contenedor. 
+Para ello es necesario ingresar al menú Images y al presionar el botón Run de la imagen cherckyto/dds-mysql 
+se debe abrir Optional Settings e ingresar el valor 3306 en ambos casilleros de la sección Ports. Luego 
+presionar Run.
 
-## Code scaffolding
+Y queda la base de datos lista en la máquina. En el directorio /db se encuentran los archivos para dockerizar la base de datos si no se desea utilizar la imagen subida al hub de docker.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para realizar las pruebas con Postman se puede importar la colección para este ejercicio que se encuentra en el directorio raiz del proyecto.
 
-## Build
+Para iniciar el proyecto desde cero se utilizó: [**Spring Initializr**](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.0&packaging=jar&jvmVersion=17&groupId=org.utn.frd&artifactId=dds&name=dds&description=Backend%20DDS&packageName=org.utn.frd.dds&dependencies=mysql,web,data-jpa,data-jpa)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+El proyecto contiene un dockerfile que permite dockerizar la aplicación.
